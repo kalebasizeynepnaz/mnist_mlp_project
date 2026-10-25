@@ -1,0 +1,17 @@
+
+# Python sanal ortamı
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# MNIST veri seti
+data/
+
+# IDE dosyaları
+.idea/
+.vscode/
+
+# İşletim sistemi dosyaları
+.DS_Store
+Thumbs.db
