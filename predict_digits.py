@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 import torch
@@ -16,6 +15,7 @@ from model import MNISTMLP
 BASE_DIR = Path(__file__).resolve().parent
 IMAGE_DIR = BASE_DIR / "my_digits"
 MODEL_PATH = BASE_DIR / "results" / "mnist_mlp.pth"
+PREVIEW_DIR = BASE_DIR / "preview_digits"  # Önizleme klasörü
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -85,8 +85,8 @@ def prepare_image(image_path):
     y = (28 - image.height) // 2
     canvas.paste(image, (x, y))
     
-    # Önizlemeyi kaydet
-    canvas.save(BASE_DIR / f"preview_{image_path.stem}.png")
+    # Önizlemeyi yeni preview_digits klasörüne kaydet
+    canvas.save(PREVIEW_DIR / f"preview_{image_path.stem}.png")
     
     # 11. Tensor'a dönüştür
     tensor = transforms.ToTensor()(canvas)
